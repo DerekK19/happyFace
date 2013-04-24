@@ -1,0 +1,16 @@
+PODS:
+  - AFNetworking (1.2.1)
+  - KeychainItemWrapper (1.2)
+  - NSLogger (1.1)
+
+DEPENDENCIES:
+  - AFNetworking (~> 1.2.1)
+  - KeychainItemWrapper (~> 1.2)
+  - NSLogger (~> 1.1)
+
+SPEC CHECKSUMS:
+  AFNetworking: 616da0028916ce296f5c3cef74e5552eb4e10e13
+  KeychainItemWrapper: f537d5bec950b2ab815c80cef9bf4e30a1084dc8
+  NSLogger: 4567fef08d0db18a89cce91b2053823fc0950738
+
+COCOAPODS: 0.18.1
