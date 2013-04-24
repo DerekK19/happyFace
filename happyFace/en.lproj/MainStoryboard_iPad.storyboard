@@ -31,18 +31,29 @@
                                     <outlet property="delegate" destination="sOf-fB-FUQ" id="VOA-NT-i1b"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZY-1L-cV2" customClass="FBProfilePictureView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" type="user" id="Nze-cU-jX2"/>
+                                    <constraint firstAttribute="width" constant="100" type="user" id="rjh-Gj-WT6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.231372565" green="0.34901961679999999" blue="0.59607845540000004" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="YRZ-bY-Xax" secondAttribute="centerX" type="user" id="IQQ-O7-ekr"/>
+                            <constraint firstItem="FZY-1L-cV2" firstAttribute="centerX" secondItem="x2M-6h-9fd" secondAttribute="centerX" type="default" id="5kL-Dy-fMj"/>
+                            <constraint firstAttribute="centerX" secondItem="FZY-1L-cV2" secondAttribute="centerX" type="user" id="EWH-hr-cGO"/>
+                            <constraint firstItem="x2M-6h-9fd" firstAttribute="centerX" secondItem="YRZ-bY-Xax" secondAttribute="centerX" type="default" id="Mx9-8p-CS1"/>
                             <constraint firstItem="x2M-6h-9fd" firstAttribute="top" secondItem="0CJ-BR-JOM" secondAttribute="top" constant="236" id="ODA-05-0bh"/>
-                            <constraint firstAttribute="centerX" secondItem="x2M-6h-9fd" secondAttribute="centerX" type="user" id="WDU-wd-9rn"/>
+                            <constraint firstItem="FZY-1L-cV2" firstAttribute="top" secondItem="0CJ-BR-JOM" secondAttribute="top" constant="126" type="user" id="lCv-MN-bIu"/>
                             <constraint firstItem="YRZ-bY-Xax" firstAttribute="top" secondItem="0CJ-BR-JOM" secondAttribute="top" constant="329" id="uIQ-Vu-49h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oG9-bg-3qF"/>
                     <connections>
                         <outlet property="FBLoginView" destination="YRZ-bY-Xax" id="Anx-zW-Y58"/>
+                        <outlet property="imageView" destination="FZY-1L-cV2" id="elT-zY-FYY"/>
+                        <outlet property="message" destination="x2M-6h-9fd" id="o6A-aE-cEY"/>
                         <outlet property="view" destination="0CJ-BR-JOM" id="mbS-Ah-fcz"/>
                         <segue destination="n6a-YQ-aP2" kind="push" identifier="did-login" id="5Cm-Sf-cgQ"/>
                     </connections>
@@ -82,26 +93,6 @@
             <point key="canvasLocation" x="1335" y="-719"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FBLoginView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBLoginView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="HFLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HFLoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="FBLoginView" candidateClass="FBLoginView"/>
-            </relationships>
-        </class>
-        <class className="HFMainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HFMainViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

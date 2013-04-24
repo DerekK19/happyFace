@@ -19,15 +19,6 @@
     // http://stackoverflow.com/questions/1725881/unknown-class-myclass-in-interface-builder-file-error-at-runtime
 // [FBProfilePictureView class];
     
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.mainViewController = [[HFViewController alloc] initWithNibName:@"HFViewController"
-//                                                                 bundle:nil];
-//    self.loginViewController = [[HFLoginViewController alloc] initWithNibName:@"HFLoginViewController"
-//                                                                       bundle:nil];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.loginViewController];
-//    self.navigationController.delegate = self;
-//    self.window.rootViewController = self.navigationController;
-    
     [self.window makeKeyAndVisible];
     
     // Facebook SDK * pro-tip *

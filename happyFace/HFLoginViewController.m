@@ -34,6 +34,7 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
+        _imageView.hidden = YES;
     }
     return self;
 }
@@ -61,8 +62,39 @@
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
+    if (FBSession.activeSession.isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection,
+           NSDictionary<FBGraphUser> *user,
+           NSError *error) {
+             if (!error) {
+                 _message.text = user.name;
+                 _imageView.profileID = user.id;
+                 _imageView.hidden = NO;
+             }
+         }];
+    }
     [self performSegueWithIdentifier:@"did-login"
                               sender:self];
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    _message.text = @"To get started, login using Facebook";
+    _imageView.hidden = YES;
+    
+    // Facebook SDK * login flow *
+    // It is important to always handle session closure because it can happen
+    // externally; for example, if the current session's access token becomes
+    // invalid. For this sample, we simply pop back to the landing page.
+    HFAppDelegate *appDelegate = (HFAppDelegate *)[UIApplication sharedApplication].delegate;
+    if (appDelegate.isNavigating) {
+        // The delay is for the edge case where a session is immediately closed after
+        // logging in and our navigation controller is still animating a push.
+        [self performSelector:@selector(logOut) withObject:nil afterDelay:.5];
+    } else {
+        [self logOut];
+    }
 }
 
 - (void)loginView:(FBLoginView *)loginView
@@ -105,21 +137,6 @@
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
-    }
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-    // Facebook SDK * login flow *
-    // It is important to always handle session closure because it can happen
-    // externally; for example, if the current session's access token becomes
-    // invalid. For this sample, we simply pop back to the landing page.
-    HFAppDelegate *appDelegate = (HFAppDelegate *)[UIApplication sharedApplication].delegate;
-    if (appDelegate.isNavigating) {
-        // The delay is for the edge case where a session is immediately closed after
-        // logging in and our navigation controller is still animating a push.
-        [self performSelector:@selector(logOut) withObject:nil afterDelay:.5];
-    } else {
-        [self logOut];
     }
 }
 

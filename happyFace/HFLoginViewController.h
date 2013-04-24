@@ -22,6 +22,8 @@
 */
 @interface HFLoginViewController : UIViewController<FBLoginViewDelegate>
 
+@property (nonatomic, strong) IBOutlet UILabel *message;
+@property (nonatomic, strong) IBOutlet FBProfilePictureView *imageView;
 @property (unsafe_unretained, nonatomic) IBOutlet FBLoginView *FBLoginView;
 
 @end
