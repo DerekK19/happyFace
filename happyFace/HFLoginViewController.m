@@ -16,7 +16,6 @@
 
 #import "HFLoginViewController.h"
 #import "HFAppDelegate.h"
-#import "HFViewController.h"
 
 @implementation HFLoginViewController
 
@@ -26,6 +25,15 @@
         // Facebook SDK * pro-tip *
         // We wire up the FBLoginView using the interface builder
         // but we could have also explicitly wired its delegate here.
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
     }
     return self;
 }
@@ -51,11 +59,10 @@
 
 #pragma mark - FBLoginView delegate
 
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    // Upon login, transition to the main UI by pushing it onto the navigation stack.
-    HFAppDelegate *appDelegate = (HFAppDelegate *)[UIApplication sharedApplication].delegate;
-    [self.navigationController pushViewController:((UIViewController *)appDelegate.mainViewController)
-                                         animated:YES];
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    [self performSegueWithIdentifier:@"did-login"
+                              sender:self];
 }
 
 - (void)loginView:(FBLoginView *)loginView

@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 Derek Knight. All rights reserved.
 //
 
-#import "HFViewController.h"
+#import "HFMainViewController.h"
 #import "HFAppDelegate.h"
 #import "HFLoginViewController.h"
 
-@interface HFViewController ()
+@interface HFMainViewController ()
 {
 }
 
 @end
 
-@implementation HFViewController
+@implementation HFMainViewController
 
 - (void)viewDidLoad
 {

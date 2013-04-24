@@ -13,10 +13,7 @@
 		6505CE3F1727A0380008BE75 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6505CE3E1727A0380008BE75 /* Social.framework */; };
 		6505CE411727A0420008BE75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6505CE401727A0420008BE75 /* Security.framework */; };
 		6505CE431727A0530008BE75 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6505CE421727A0530008BE75 /* FacebookSDK.framework */; };
-		6505CE471727A12F0008BE75 /* HFLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE451727A12F0008BE75 /* HFLoginViewController.xib */; };
 		6505CE481727A12F0008BE75 /* HFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505CE461727A12F0008BE75 /* HFLoginViewController.m */; };
-		6505CE4A1727A3440008BE75 /* HFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE491727A3440008BE75 /* HFViewController.xib */; };
-		6505CE4E1727A57D0008BE75 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE4B1727A57D0008BE75 /* Icon-72.png */; };
 		6505CE521727A5A50008BE75 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE511727A5A50008BE75 /* Icon.png */; };
 		6505CE541727A5AD0008BE75 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE531727A5AD0008BE75 /* Icon@2x.png */; };
 		6505CE621727AEF60008BE75 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE601727AEF60008BE75 /* FacebookSDKResources.bundle */; };
@@ -32,12 +29,13 @@
 		653C674817279DA7002E1188 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 653C674717279DA7002E1188 /* Default-568h@2x.png */; };
 		653C674B17279DA7002E1188 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653C674917279DA7002E1188 /* MainStoryboard_iPhone.storyboard */; };
 		653C674E17279DA7002E1188 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653C674C17279DA7002E1188 /* MainStoryboard_iPad.storyboard */; };
-		653C675117279DA7002E1188 /* HFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653C675017279DA7002E1188 /* HFViewController.m */; };
+		653C675117279DA7002E1188 /* HFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653C675017279DA7002E1188 /* HFMainViewController.m */; };
 		653C675917279DA7002E1188 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C675817279DA7002E1188 /* SenTestingKit.framework */; };
 		653C675A17279DA7002E1188 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673117279DA7002E1188 /* UIKit.framework */; };
 		653C675B17279DA7002E1188 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673317279DA7002E1188 /* Foundation.framework */; };
 		653C676317279DA7002E1188 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 653C676117279DA7002E1188 /* InfoPlist.strings */; };
 		653C676617279DA7002E1188 /* happyFaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653C676517279DA7002E1188 /* happyFaceTests.m */; };
+		65E6B9F61727D0E8000C5E00 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 65E6B9F51727D0E8000C5E00 /* Podfile */; };
 		D8454882FDC741429C18956A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DE5A03864D4713B81BD59F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,10 +58,7 @@
 		6505CE401727A0420008BE75 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6505CE421727A0530008BE75 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../OpenSource/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		6505CE441727A12F0008BE75 /* HFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLoginViewController.h; sourceTree = "<group>"; };
-		6505CE451727A12F0008BE75 /* HFLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFLoginViewController.xib; sourceTree = "<group>"; };
 		6505CE461727A12F0008BE75 /* HFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLoginViewController.m; sourceTree = "<group>"; };
-		6505CE491727A3440008BE75 /* HFViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFViewController.xib; sourceTree = "<group>"; };
-		6505CE4B1727A57D0008BE75 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		6505CE511727A5A50008BE75 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6505CE531727A5AD0008BE75 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6505CE601727AEF60008BE75 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../OpenSource/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -83,14 +78,15 @@
 		653C674717279DA7002E1188 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		653C674A17279DA7002E1188 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		653C674D17279DA7002E1188 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		653C674F17279DA7002E1188 /* HFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFViewController.h; sourceTree = "<group>"; };
-		653C675017279DA7002E1188 /* HFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFViewController.m; sourceTree = "<group>"; };
+		653C674F17279DA7002E1188 /* HFMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMainViewController.h; sourceTree = "<group>"; };
+		653C675017279DA7002E1188 /* HFMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMainViewController.m; sourceTree = "<group>"; };
 		653C675717279DA7002E1188 /* happyFaceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = happyFaceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653C675817279DA7002E1188 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		653C676017279DA7002E1188 /* happyFaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "happyFaceTests-Info.plist"; sourceTree = "<group>"; };
 		653C676217279DA7002E1188 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		653C676417279DA7002E1188 /* happyFaceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = happyFaceTests.h; sourceTree = "<group>"; };
 		653C676517279DA7002E1188 /* happyFaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = happyFaceTests.m; sourceTree = "<group>"; };
+		65E6B9F51727D0E8000C5E00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		73DE5A03864D4713B81BD59F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +131,7 @@
 				653C673017279DA7002E1188 /* Frameworks */,
 				653C672F17279DA7002E1188 /* Products */,
 				2246B6BFAD77439BA4FA0553 /* Pods.xcconfig */,
+				65E6B9F51727D0E8000C5E00 /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,17 +167,14 @@
 		653C673717279DA7002E1188 /* happyFace */ = {
 			isa = PBXGroup;
 			children = (
-				6505CE4B1727A57D0008BE75 /* Icon-72.png */,
 				653C674017279DA7002E1188 /* HFAppDelegate.h */,
 				653C674117279DA7002E1188 /* HFAppDelegate.m */,
 				653C674917279DA7002E1188 /* MainStoryboard_iPhone.storyboard */,
 				653C674C17279DA7002E1188 /* MainStoryboard_iPad.storyboard */,
-				653C674F17279DA7002E1188 /* HFViewController.h */,
-				653C675017279DA7002E1188 /* HFViewController.m */,
-				6505CE491727A3440008BE75 /* HFViewController.xib */,
 				6505CE441727A12F0008BE75 /* HFLoginViewController.h */,
 				6505CE461727A12F0008BE75 /* HFLoginViewController.m */,
-				6505CE451727A12F0008BE75 /* HFLoginViewController.xib */,
+				653C674F17279DA7002E1188 /* HFMainViewController.h */,
+				653C675017279DA7002E1188 /* HFMainViewController.m */,
 				653C673817279DA7002E1188 /* Supporting Files */,
 			);
 			path = happyFace;
@@ -301,11 +295,9 @@
 				653C674817279DA7002E1188 /* Default-568h@2x.png in Resources */,
 				653C674B17279DA7002E1188 /* MainStoryboard_iPhone.storyboard in Resources */,
 				653C674E17279DA7002E1188 /* MainStoryboard_iPad.storyboard in Resources */,
-				6505CE471727A12F0008BE75 /* HFLoginViewController.xib in Resources */,
-				6505CE4A1727A3440008BE75 /* HFViewController.xib in Resources */,
-				6505CE4E1727A57D0008BE75 /* Icon-72.png in Resources */,
 				6505CE521727A5A50008BE75 /* Icon.png in Resources */,
 				6505CE541727A5AD0008BE75 /* Icon@2x.png in Resources */,
+				65E6B9F61727D0E8000C5E00 /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +362,7 @@
 			files = (
 				653C673E17279DA7002E1188 /* main.m in Sources */,
 				653C674217279DA7002E1188 /* HFAppDelegate.m in Sources */,
-				653C675117279DA7002E1188 /* HFViewController.m in Sources */,
+				653C675117279DA7002E1188 /* HFMainViewController.m in Sources */,
 				6505CE481727A12F0008BE75 /* HFLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //
 
 #import "HFAppDelegate.h"
-#import "HFViewController.h"
+#import "HFMainViewController.h"
 #import "HFLoginViewController.h"
 #import <FacebookSDK/FBSessionTokenCachingStrategy.h>
 
@@ -17,16 +17,16 @@
     // If you have not added the -ObjC linker flag, you may need to uncomment the following line because
     // Nib files require the type to have been loaded before they can do the wireup successfully.
     // http://stackoverflow.com/questions/1725881/unknown-class-myclass-in-interface-builder-file-error-at-runtime
-     [FBProfilePictureView class];
+// [FBProfilePictureView class];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.mainViewController = [[HFViewController alloc] initWithNibName:@"HFViewController"
-                                                                 bundle:nil];
-    self.loginViewController = [[HFLoginViewController alloc] initWithNibName:@"HFLoginViewController"
-                                                                       bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.loginViewController];
-    self.navigationController.delegate = self;
-    self.window.rootViewController = self.navigationController;
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.mainViewController = [[HFViewController alloc] initWithNibName:@"HFViewController"
+//                                                                 bundle:nil];
+//    self.loginViewController = [[HFLoginViewController alloc] initWithNibName:@"HFLoginViewController"
+//                                                                       bundle:nil];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.loginViewController];
+//    self.navigationController.delegate = self;
+//    self.window.rootViewController = self.navigationController;
     
     [self.window makeKeyAndVisible];
     
@@ -113,8 +113,9 @@
     [appLinkSession openFromAccessTokenData:appLinkToken
                           completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
                               // Forward any errors to the FBLoginView delegate.
-                              if (error) {
-                                  [self.loginViewController loginView:nil handleError:error];
+                              if (error)
+                              {
+//                                  [self.loginViewController loginView:nil handleError:error];
                               }
                           }];
 }
