@@ -12,13 +12,26 @@
 #import "SASlideMenuDataSource.h"
 #import "SASlideMenuDelegate.h"
 
+#define RGBColour(r,g,b) [UIColor colorWithRed:((CGFloat)r)/255.f green:((CGFloat)g)/255.f blue:((CGFloat)b)/255.f alpha:1.f]
+
 @interface HFMainViewController () <SASlideMenuDataSource, SASlideMenuDelegate, UITableViewDataSource>
 {
 }
 
+@property (nonatomic, strong) NSArray *menuSections;
 @end
 
 @implementation HFMainViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        _menuSections = @[@"", @"FAVOURITES", @"APPS", @"GROUPS", @"FRIENDS", @" "];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -87,43 +100,69 @@
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return _menuSections.count;
 }
 
 -(NSString*)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return @"HappyFace";
-    }
-    return @"foo";
+    return [_menuSections objectAtIndex:section];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return [[_menuSections objectAtIndex:section] length] == 0 ? 0.f : 40.f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40.f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGFloat height = 40.f;
+    CGFloat width = tableView.frame.size.width;
+    CGFloat marginX = 10.f;
+    CGFloat marginY = 5.f;
+    
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.f, 0.f, width, height)];
+    headerView.backgroundColor = RGBColour(63, 70, 89);
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(marginX, marginY, width-2*marginX, height-2*marginY)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = RGBColour(156, 164, 179);
+    label.font = [UIFont boldSystemFontOfSize:12.f];
+    label.text = [self tableView:tableView titleForHeaderInSection:section];
+    [headerView addSubview:label];
+
+    return headerView;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
+
 -(void) tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat brightness = 1-((double) indexPath.row)/5;
-    NSInteger section = indexPath.section;
-    CGFloat hue=0;
-    if (section == 0) {
-        hue = 0.0;
-    }else if (section==1){
-        hue = 0.33;
-    }else if (section==2){
-        hue = 0.66;
+    if (cell.isSelected == YES)
+    {
+        [cell setBackgroundColor:RGBColour(41, 47, 61)];
     }
-    cell.backgroundColor = [UIColor colorWithHue:hue saturation:1.0 brightness:brightness alpha:1.0];
+    else
+    {
+        [cell setBackgroundColor:RGBColour(50, 57, 74)];
+    }
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"item"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = @"login";
+    cell.textLabel.textColor = RGBColour(156, 164, 179);
     return cell;
 }
 
@@ -143,6 +182,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(41, 47, 61)];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(50, 57, 74)];
 }
 
 #pragma mark -
