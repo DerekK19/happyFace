@@ -4,4 +4,3 @@
 #define __POD_AFNetworking
 #define __POD_KeychainItemWrapper
 #define __POD_NSLogger
-#define __POD_SASlideMenu

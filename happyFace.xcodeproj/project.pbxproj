@@ -35,6 +35,22 @@
 		653C675B17279DA7002E1188 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673317279DA7002E1188 /* Foundation.framework */; };
 		653C676317279DA7002E1188 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 653C676117279DA7002E1188 /* InfoPlist.strings */; };
 		653C676617279DA7002E1188 /* happyFaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653C676517279DA7002E1188 /* happyFaceTests.m */; };
+		659A4CB0172E5AD300C269CC /* SASlideMenuContentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4C9F172E5AD300C269CC /* SASlideMenuContentSegue.m */; };
+		659A4CB1172E5AD300C269CC /* SASlideMenuLeftMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CA3172E5AD300C269CC /* SASlideMenuLeftMenuSegue.m */; };
+		659A4CB2172E5AD300C269CC /* SASlideMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CA5172E5AD300C269CC /* SASlideMenuNavigationController.m */; };
+		659A4CB3172E5AD300C269CC /* SASlideMenuPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CA7172E5AD300C269CC /* SASlideMenuPushSegue.m */; };
+		659A4CB4172E5AD300C269CC /* SASlideMenuRightMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CA9172E5AD300C269CC /* SASlideMenuRightMenuSegue.m */; };
+		659A4CB5172E5AD300C269CC /* SASlideMenuRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CAB172E5AD300C269CC /* SASlideMenuRightMenuViewController.m */; };
+		659A4CB6172E5AD300C269CC /* SASlideMenuRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CAD172E5AD300C269CC /* SASlideMenuRootViewController.m */; };
+		659A4CB7172E5AD300C269CC /* SASlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CAF172E5AD300C269CC /* SASlideMenuViewController.m */; };
+		659A4CCC172E5CBC00C269CC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CC4172E5CBC00C269CC /* menu.png */; };
+		659A4CCD172E5CBC00C269CC /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CC5172E5CBC00C269CC /* menu@2x.png */; };
+		659A4CCE172E5CBC00C269CC /* menuhighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CC6172E5CBC00C269CC /* menuhighlighted.png */; };
+		659A4CCF172E5CBC00C269CC /* menuhighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CC7172E5CBC00C269CC /* menuhighlighted@2x.png */; };
+		659A4CD0172E5CBC00C269CC /* menuicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CC8172E5CBC00C269CC /* menuicon.png */; };
+		659A4CD1172E5CBC00C269CC /* menuicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CC9172E5CBC00C269CC /* menuicon@2x.png */; };
+		659A4CD2172E5CBC00C269CC /* menuright.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCA172E5CBC00C269CC /* menuright.png */; };
+		659A4CD3172E5CBC00C269CC /* menuright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCB172E5CBC00C269CC /* menuright@2x.png */; };
 		65E6B9F61727D0E8000C5E00 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 65E6B9F51727D0E8000C5E00 /* Podfile */; };
 		D8454882FDC741429C18956A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DE5A03864D4713B81BD59F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -86,7 +102,33 @@
 		653C676217279DA7002E1188 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		653C676417279DA7002E1188 /* happyFaceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = happyFaceTests.h; sourceTree = "<group>"; };
 		653C676517279DA7002E1188 /* happyFaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = happyFaceTests.m; sourceTree = "<group>"; };
-		65E6B9F51727D0E8000C5E00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		659A4C9E172E5AD300C269CC /* SASlideMenuContentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuContentSegue.h; sourceTree = "<group>"; };
+		659A4C9F172E5AD300C269CC /* SASlideMenuContentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuContentSegue.m; sourceTree = "<group>"; };
+		659A4CA0172E5AD300C269CC /* SASlideMenuDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuDataSource.h; sourceTree = "<group>"; };
+		659A4CA1172E5AD300C269CC /* SASlideMenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuDelegate.h; sourceTree = "<group>"; };
+		659A4CA2172E5AD300C269CC /* SASlideMenuLeftMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuLeftMenuSegue.h; sourceTree = "<group>"; };
+		659A4CA3172E5AD300C269CC /* SASlideMenuLeftMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuLeftMenuSegue.m; sourceTree = "<group>"; };
+		659A4CA4172E5AD300C269CC /* SASlideMenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuNavigationController.h; sourceTree = "<group>"; };
+		659A4CA5172E5AD300C269CC /* SASlideMenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuNavigationController.m; sourceTree = "<group>"; };
+		659A4CA6172E5AD300C269CC /* SASlideMenuPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuPushSegue.h; sourceTree = "<group>"; };
+		659A4CA7172E5AD300C269CC /* SASlideMenuPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuPushSegue.m; sourceTree = "<group>"; };
+		659A4CA8172E5AD300C269CC /* SASlideMenuRightMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuRightMenuSegue.h; sourceTree = "<group>"; };
+		659A4CA9172E5AD300C269CC /* SASlideMenuRightMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuRightMenuSegue.m; sourceTree = "<group>"; };
+		659A4CAA172E5AD300C269CC /* SASlideMenuRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuRightMenuViewController.h; sourceTree = "<group>"; };
+		659A4CAB172E5AD300C269CC /* SASlideMenuRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuRightMenuViewController.m; sourceTree = "<group>"; };
+		659A4CAC172E5AD300C269CC /* SASlideMenuRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuRootViewController.h; sourceTree = "<group>"; };
+		659A4CAD172E5AD300C269CC /* SASlideMenuRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuRootViewController.m; sourceTree = "<group>"; };
+		659A4CAE172E5AD300C269CC /* SASlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuViewController.h; sourceTree = "<group>"; };
+		659A4CAF172E5AD300C269CC /* SASlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuViewController.m; sourceTree = "<group>"; };
+		659A4CC4172E5CBC00C269CC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		659A4CC5172E5CBC00C269CC /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		659A4CC6172E5CBC00C269CC /* menuhighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuhighlighted.png; sourceTree = "<group>"; };
+		659A4CC7172E5CBC00C269CC /* menuhighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuhighlighted@2x.png"; sourceTree = "<group>"; };
+		659A4CC8172E5CBC00C269CC /* menuicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuicon.png; sourceTree = "<group>"; };
+		659A4CC9172E5CBC00C269CC /* menuicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuicon@2x.png"; sourceTree = "<group>"; };
+		659A4CCA172E5CBC00C269CC /* menuright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuright.png; sourceTree = "<group>"; };
+		659A4CCB172E5CBC00C269CC /* menuright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuright@2x.png"; sourceTree = "<group>"; };
+		65E6B9F51727D0E8000C5E00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		73DE5A03864D4713B81BD59F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +171,7 @@
 				653C673717279DA7002E1188 /* happyFace */,
 				653C675E17279DA7002E1188 /* happyFaceTests */,
 				653C673017279DA7002E1188 /* Frameworks */,
+				659A4C9D172E5AD300C269CC /* SASlideMenu */,
 				653C672F17279DA7002E1188 /* Products */,
 				2246B6BFAD77439BA4FA0553 /* Pods.xcconfig */,
 				65E6B9F51727D0E8000C5E00 /* Podfile */,
@@ -175,6 +218,7 @@
 				6505CE461727A12F0008BE75 /* HFLoginViewController.m */,
 				653C674F17279DA7002E1188 /* HFMainViewController.h */,
 				653C675017279DA7002E1188 /* HFMainViewController.m */,
+				659A4C9C172E426900C269CC /* images */,
 				653C673817279DA7002E1188 /* Supporting Files */,
 			);
 			path = happyFace;
@@ -211,6 +255,47 @@
 				653C676117279DA7002E1188 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		659A4C9C172E426900C269CC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				659A4CC4172E5CBC00C269CC /* menu.png */,
+				659A4CC5172E5CBC00C269CC /* menu@2x.png */,
+				659A4CC6172E5CBC00C269CC /* menuhighlighted.png */,
+				659A4CC7172E5CBC00C269CC /* menuhighlighted@2x.png */,
+				659A4CC8172E5CBC00C269CC /* menuicon.png */,
+				659A4CC9172E5CBC00C269CC /* menuicon@2x.png */,
+				659A4CCA172E5CBC00C269CC /* menuright.png */,
+				659A4CCB172E5CBC00C269CC /* menuright@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		659A4C9D172E5AD300C269CC /* SASlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				659A4C9E172E5AD300C269CC /* SASlideMenuContentSegue.h */,
+				659A4C9F172E5AD300C269CC /* SASlideMenuContentSegue.m */,
+				659A4CA0172E5AD300C269CC /* SASlideMenuDataSource.h */,
+				659A4CA1172E5AD300C269CC /* SASlideMenuDelegate.h */,
+				659A4CA2172E5AD300C269CC /* SASlideMenuLeftMenuSegue.h */,
+				659A4CA3172E5AD300C269CC /* SASlideMenuLeftMenuSegue.m */,
+				659A4CA4172E5AD300C269CC /* SASlideMenuNavigationController.h */,
+				659A4CA5172E5AD300C269CC /* SASlideMenuNavigationController.m */,
+				659A4CA6172E5AD300C269CC /* SASlideMenuPushSegue.h */,
+				659A4CA7172E5AD300C269CC /* SASlideMenuPushSegue.m */,
+				659A4CA8172E5AD300C269CC /* SASlideMenuRightMenuSegue.h */,
+				659A4CA9172E5AD300C269CC /* SASlideMenuRightMenuSegue.m */,
+				659A4CAA172E5AD300C269CC /* SASlideMenuRightMenuViewController.h */,
+				659A4CAB172E5AD300C269CC /* SASlideMenuRightMenuViewController.m */,
+				659A4CAC172E5AD300C269CC /* SASlideMenuRootViewController.h */,
+				659A4CAD172E5AD300C269CC /* SASlideMenuRootViewController.m */,
+				659A4CAE172E5AD300C269CC /* SASlideMenuViewController.h */,
+				659A4CAF172E5AD300C269CC /* SASlideMenuViewController.m */,
+			);
+			name = SASlideMenu;
+			path = ../../OpenSource/SASlideMenu/SASlideMenu/SASlideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +383,14 @@
 				6505CE521727A5A50008BE75 /* Icon.png in Resources */,
 				6505CE541727A5AD0008BE75 /* Icon@2x.png in Resources */,
 				65E6B9F61727D0E8000C5E00 /* Podfile in Resources */,
+				659A4CCC172E5CBC00C269CC /* menu.png in Resources */,
+				659A4CCD172E5CBC00C269CC /* menu@2x.png in Resources */,
+				659A4CCE172E5CBC00C269CC /* menuhighlighted.png in Resources */,
+				659A4CCF172E5CBC00C269CC /* menuhighlighted@2x.png in Resources */,
+				659A4CD0172E5CBC00C269CC /* menuicon.png in Resources */,
+				659A4CD1172E5CBC00C269CC /* menuicon@2x.png in Resources */,
+				659A4CD2172E5CBC00C269CC /* menuright.png in Resources */,
+				659A4CD3172E5CBC00C269CC /* menuright@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +457,14 @@
 				653C674217279DA7002E1188 /* HFAppDelegate.m in Sources */,
 				653C675117279DA7002E1188 /* HFMainViewController.m in Sources */,
 				6505CE481727A12F0008BE75 /* HFLoginViewController.m in Sources */,
+				659A4CB0172E5AD300C269CC /* SASlideMenuContentSegue.m in Sources */,
+				659A4CB1172E5AD300C269CC /* SASlideMenuLeftMenuSegue.m in Sources */,
+				659A4CB2172E5AD300C269CC /* SASlideMenuNavigationController.m in Sources */,
+				659A4CB3172E5AD300C269CC /* SASlideMenuPushSegue.m in Sources */,
+				659A4CB4172E5AD300C269CC /* SASlideMenuRightMenuSegue.m in Sources */,
+				659A4CB5172E5AD300C269CC /* SASlideMenuRightMenuViewController.m in Sources */,
+				659A4CB6172E5AD300C269CC /* SASlideMenuRootViewController.m in Sources */,
+				659A4CB7172E5AD300C269CC /* SASlideMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,16 +39,6 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBarHidden = YES;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = NO;
-}
-
 - (void)viewDidUnload {
     [self setFBLoginView:nil];
     [super viewDidUnload];
@@ -74,8 +64,8 @@
              }
          }];
     }
-    [self performSegueWithIdentifier:@"did-login"
-                              sender:self];
+//DK    [self performSegueWithIdentifier:@"did-login"
+//DK                              sender:self];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -140,7 +130,8 @@
     }
 }
 
-- (void)logOut {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+- (void)logOut
+{
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end
