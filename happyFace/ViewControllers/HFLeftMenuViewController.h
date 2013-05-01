@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SASlideMenuViewController.h"
 
-@interface HFMainViewController : SASlideMenuViewController
+@interface HFLeftMenuViewController : SASlideMenuViewController
 
 @end

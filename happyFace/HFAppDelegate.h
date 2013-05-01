@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@class HFVMainiewController;
+@class HFLeftMenuViewController;
 @class HFLoginViewController;
 
 @interface HFAppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate>

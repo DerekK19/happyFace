@@ -64,8 +64,8 @@
              }
          }];
     }
-//DK    [self performSegueWithIdentifier:@"did-login"
-//DK                              sender:self];
+    [self performSegueWithIdentifier:@"did-login"
+                              sender:self];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView

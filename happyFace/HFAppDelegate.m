@@ -7,7 +7,7 @@
 //
 
 #import "HFAppDelegate.h"
-#import "HFMainViewController.h"
+#import "HFLeftMenuViewController.h"
 #import "HFLoginViewController.h"
 #import <FacebookSDK/FBSessionTokenCachingStrategy.h>
 

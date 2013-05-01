@@ -29,7 +29,7 @@
 		653C674817279DA7002E1188 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 653C674717279DA7002E1188 /* Default-568h@2x.png */; };
 		653C674B17279DA7002E1188 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653C674917279DA7002E1188 /* MainStoryboard_iPhone.storyboard */; };
 		653C674E17279DA7002E1188 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653C674C17279DA7002E1188 /* MainStoryboard_iPad.storyboard */; };
-		653C675117279DA7002E1188 /* HFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653C675017279DA7002E1188 /* HFMainViewController.m */; };
+		653C675117279DA7002E1188 /* HFLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653C675017279DA7002E1188 /* HFLeftMenuViewController.m */; };
 		653C675917279DA7002E1188 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C675817279DA7002E1188 /* SenTestingKit.framework */; };
 		653C675A17279DA7002E1188 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673117279DA7002E1188 /* UIKit.framework */; };
 		653C675B17279DA7002E1188 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673317279DA7002E1188 /* Foundation.framework */; };
@@ -51,6 +51,8 @@
 		659A4CD1172E5CBC00C269CC /* menuicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CC9172E5CBC00C269CC /* menuicon@2x.png */; };
 		659A4CD2172E5CBC00C269CC /* menuright.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCA172E5CBC00C269CC /* menuright.png */; };
 		659A4CD3172E5CBC00C269CC /* menuright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCB172E5CBC00C269CC /* menuright@2x.png */; };
+		659A4CD61730F13B00C269CC /* HFNewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */; };
+		659A4CD91730F2BF00C269CC /* HFNFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CD81730F2BF00C269CC /* HFNFViewController.m */; };
 		65E6B9F61727D0E8000C5E00 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 65E6B9F51727D0E8000C5E00 /* Podfile */; };
 		D8454882FDC741429C18956A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DE5A03864D4713B81BD59F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -94,8 +96,8 @@
 		653C674717279DA7002E1188 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		653C674A17279DA7002E1188 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		653C674D17279DA7002E1188 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		653C674F17279DA7002E1188 /* HFMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMainViewController.h; sourceTree = "<group>"; };
-		653C675017279DA7002E1188 /* HFMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMainViewController.m; sourceTree = "<group>"; };
+		653C674F17279DA7002E1188 /* HFLeftMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFLeftMenuViewController.h; sourceTree = "<group>"; };
+		653C675017279DA7002E1188 /* HFLeftMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFLeftMenuViewController.m; sourceTree = "<group>"; };
 		653C675717279DA7002E1188 /* happyFaceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = happyFaceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653C675817279DA7002E1188 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		653C676017279DA7002E1188 /* happyFaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "happyFaceTests-Info.plist"; sourceTree = "<group>"; };
@@ -128,6 +130,10 @@
 		659A4CC9172E5CBC00C269CC /* menuicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuicon@2x.png"; sourceTree = "<group>"; };
 		659A4CCA172E5CBC00C269CC /* menuright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuright.png; sourceTree = "<group>"; };
 		659A4CCB172E5CBC00C269CC /* menuright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuright@2x.png"; sourceTree = "<group>"; };
+		659A4CD41730F13A00C269CC /* HFNewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFNewsFeedViewController.h; sourceTree = "<group>"; };
+		659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFNewsFeedViewController.m; sourceTree = "<group>"; };
+		659A4CD71730F2BF00C269CC /* HFNFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFNFViewController.h; sourceTree = "<group>"; };
+		659A4CD81730F2BF00C269CC /* HFNFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFNFViewController.m; sourceTree = "<group>"; };
 		65E6B9F51727D0E8000C5E00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		73DE5A03864D4713B81BD59F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -168,7 +174,7 @@
 			children = (
 				6505CE531727A5AD0008BE75 /* Icon@2x.png */,
 				6505CE511727A5A50008BE75 /* Icon.png */,
-				653C673717279DA7002E1188 /* happyFace */,
+				653C673717279DA7002E1188 /* application */,
 				653C675E17279DA7002E1188 /* happyFaceTests */,
 				653C673017279DA7002E1188 /* Frameworks */,
 				659A4C9D172E5AD300C269CC /* SASlideMenu */,
@@ -207,20 +213,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		653C673717279DA7002E1188 /* happyFace */ = {
+		653C673717279DA7002E1188 /* application */ = {
 			isa = PBXGroup;
 			children = (
 				653C674017279DA7002E1188 /* HFAppDelegate.h */,
 				653C674117279DA7002E1188 /* HFAppDelegate.m */,
 				653C674917279DA7002E1188 /* MainStoryboard_iPhone.storyboard */,
 				653C674C17279DA7002E1188 /* MainStoryboard_iPad.storyboard */,
-				6505CE441727A12F0008BE75 /* HFLoginViewController.h */,
-				6505CE461727A12F0008BE75 /* HFLoginViewController.m */,
-				653C674F17279DA7002E1188 /* HFMainViewController.h */,
-				653C675017279DA7002E1188 /* HFMainViewController.m */,
+				65EB9FE017310641007B8C94 /* View controllers */,
 				659A4C9C172E426900C269CC /* images */,
 				653C673817279DA7002E1188 /* Supporting Files */,
 			);
+			name = application;
 			path = happyFace;
 			sourceTree = "<group>";
 		};
@@ -296,6 +300,22 @@
 			);
 			name = SASlideMenu;
 			path = ../../OpenSource/SASlideMenu/SASlideMenu/SASlideMenu;
+			sourceTree = "<group>";
+		};
+		65EB9FE017310641007B8C94 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				659A4CD71730F2BF00C269CC /* HFNFViewController.h */,
+				659A4CD81730F2BF00C269CC /* HFNFViewController.m */,
+				653C674F17279DA7002E1188 /* HFLeftMenuViewController.h */,
+				653C675017279DA7002E1188 /* HFLeftMenuViewController.m */,
+				6505CE441727A12F0008BE75 /* HFLoginViewController.h */,
+				6505CE461727A12F0008BE75 /* HFLoginViewController.m */,
+				659A4CD41730F13A00C269CC /* HFNewsFeedViewController.h */,
+				659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */,
+			);
+			name = "View controllers";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,7 +475,7 @@
 			files = (
 				653C673E17279DA7002E1188 /* main.m in Sources */,
 				653C674217279DA7002E1188 /* HFAppDelegate.m in Sources */,
-				653C675117279DA7002E1188 /* HFMainViewController.m in Sources */,
+				653C675117279DA7002E1188 /* HFLeftMenuViewController.m in Sources */,
 				6505CE481727A12F0008BE75 /* HFLoginViewController.m in Sources */,
 				659A4CB0172E5AD300C269CC /* SASlideMenuContentSegue.m in Sources */,
 				659A4CB1172E5AD300C269CC /* SASlideMenuLeftMenuSegue.m in Sources */,
@@ -465,6 +485,8 @@
 				659A4CB5172E5AD300C269CC /* SASlideMenuRightMenuViewController.m in Sources */,
 				659A4CB6172E5AD300C269CC /* SASlideMenuRootViewController.m in Sources */,
 				659A4CB7172E5AD300C269CC /* SASlideMenuViewController.m in Sources */,
+				659A4CD61730F13B00C269CC /* HFNewsFeedViewController.m in Sources */,
+				659A4CD91730F2BF00C269CC /* HFNFViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
