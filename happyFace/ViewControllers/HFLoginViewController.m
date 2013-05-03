@@ -71,7 +71,7 @@
                  _imageView.profileID = user.id;
                  _imageView.hidden = NO;
                  if (_notifyLoggedInState)
-                     [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFY_USER_LOGGED_IN object:nil];
+                     [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFY_USER_LOGGED_IN object:user];
              }
          }];
     }

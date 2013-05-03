@@ -16,10 +16,13 @@
 
 @interface HFLeftMenuViewController () <SASlideMenuDataSource, SASlideMenuDelegate, UITableViewDataSource>
 {
+    HFLeftMenuCell *_userCell;
 }
 
 @property (nonatomic, strong) NSDictionary *menu;
 @property (nonatomic, strong) NSArray *menuSections;
+
+- (void)setUser:(NSDictionary<FBGraphUser>*)user;
 
 @end
 
@@ -34,6 +37,7 @@
         _menu = @{@"sections":@[
                                 @{@"title"   : @"",
                                   @"entries" : @[@{@"title"  : @"Sign In",
+                                                   @"image"  : @"placeholder.png",
                                                    @"segue"  : @"login"}]},
                                 @{@"title"   : @"FAVOURITES",
                                   @"entries" : @[@{@"title"  : @"News Feed",
@@ -61,6 +65,8 @@
                                                           queue:nil
                                                      usingBlock:^(NSNotification *note)
                                                                 {
+                                                                    NSDictionary<FBGraphUser> *user = note.object;
+                                                                    [self setUser:user];
                                                                     [self performSegueWithIdentifier:@"news-feed"
                                                                                               sender:self];
                                                                 }];
@@ -79,6 +85,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark Private functions
+
+- (void)setUser:(NSDictionary<FBGraphUser>*)user
+{
+//    HFLeftMenuCell *cell = (HFLeftMenuCell *)[self tableView:self.tableView
+//                                       cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0
+//                                                                                inSection:0]];
+    [_userCell setTitle:user.name];
+//    [cell setNeedsDisplay];
 }
 
 #pragma mark -
@@ -216,14 +234,7 @@ titleForHeaderInSection:(NSInteger)section
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (cell.isSelected == YES)
-    {
-//        [cell setBackgroundColor:RGBColour(42, 46, 61)];
-    }
-    else
-    {
-//        [cell setBackgroundColor:RGBColour(51, 56, 75)];
-    }
+    NSLog(@"tableView:willDisplayCell %@ %d %d", cell, indexPath.section, indexPath.row);
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView
@@ -232,17 +243,21 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:indexPath.section];
     NSArray *entries = [subMenu objectForKey:@"entries"];
     NSDictionary *entry = [entries objectAtIndex:indexPath.row];
+    NSString *title = [entry objectForKey:@"title"];
 
-    HFLeftMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"leftMenuCell"];
-    cell = [cell initWithStyle:UITableViewCellStyleDefault
-               reuseIdentifier:@"leftMenuCell"];
-    cell.textLabel.text = [entry objectForKey:@"title"];
+    static NSString *cellIdentifier = @"leftMenuCell";
+    HFLeftMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    [cell setTitle:title];
+    [cell setPicture:[UIImage imageNamed:[entry objectForKey:@"image"]]];
+    
+    if (indexPath.section == 0 && indexPath.row == 0) _userCell = cell;
+    
     return cell;
 }
 
 -(CGFloat) leftMenuVisibleWidth
 {
-    return 364.f;
+    return 304.f;
 }
 
 -(CGFloat) rightMenuVisibleWidth
@@ -256,7 +271,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-//    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(42, 46, 61)];
 
     NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:indexPath.section];
     NSArray *entries = [subMenu objectForKey:@"entries"];
@@ -268,7 +282,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(51, 56, 75)];
 }
 
 #pragma mark -

@@ -10,4 +10,7 @@
 
 @interface HFLeftMenuCell : UITableViewCell
 
+- (void)setTitle:(NSString *)value;
+- (void)setPicture:(UIImage *)value;
+
 @end

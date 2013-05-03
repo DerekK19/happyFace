@@ -16,8 +16,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.textLabel.textColor = RGBColour(157, 161, 178);
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -31,15 +29,37 @@
     [self setNeedsDisplay];
 }
 
+- (void)setTitle:(NSString *)value
+{
+    NSLog(@"%@ -> %@", self.textLabel.text, value);
+    self.textLabel.textColor = RGBColour(195, 203, 219);
+    self.textLabel.font = [UIFont systemFontOfSize:18.f];
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.textLabel.text = value;
+
+    [self setNeedsDisplay];
+}
+
+- (void)setPicture:(UIImage *)value
+{
+    [self.imageView setImage:value];
+
+    [self setNeedsDisplay];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.imageView.frame = CGRectMake(6, 6, 32, 32);
+}
+
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSaveGState(context);
     UIColor *topColour, *inColour, *bottomColour;
     CGFloat r, g, b, a;
  
-    topColour = RGBColour(63, 68, 85);
+    topColour = RGBColour(59, 65, 83);
     if (self.isSelected)
     {
         inColour = RGBColour(42, 46, 61);
@@ -48,11 +68,15 @@
     {
         inColour = RGBColour(51, 56, 75);
     }
-    bottomColour = RGBColour(36, 41, 58);
+    bottomColour = RGBColour(42, 47, 62);
     
 //    topColour = [UIColor redColor];
 //    inColour = [UIColor greenColor];
 //    bottomColour = [UIColor yellowColor];
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    CGContextSaveGState(context);
     
     [topColour getRed:&r green:&g blue:&b alpha:&a];
     CGContextSetRGBStrokeColor(context, r, g, b, a);
