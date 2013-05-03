@@ -17,17 +17,13 @@
 #import "HFLoginViewController.h"
 #import "HFAppDelegate.h"
 
-@implementation HFLoginViewController
+@interface HFLoginViewController ()
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Facebook SDK * pro-tip *
-        // We wire up the FBLoginView using the interface builder
-        // but we could have also explicitly wired its delegate here.
-    }
-    return self;
-}
+@property (nonatomic) BOOL notifyLoggedInState;
+
+@end
+
+@implementation HFLoginViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -35,6 +31,7 @@
     if (self)
     {
         _imageView.hidden = YES;
+        _notifyLoggedInState = YES;
     }
     return self;
 }
@@ -44,7 +41,16 @@
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (void)setSegueIdentifier:(NSString *)name
+{
+    if ([name isEqualToString:@"logout"])
+    {
+        _notifyLoggedInState = NO;
+    }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -52,20 +58,23 @@
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
-    if (FBSession.activeSession.isOpen) {
+    if (FBSession.activeSession.isOpen)
+    {
         [[FBRequest requestForMe] startWithCompletionHandler:
          ^(FBRequestConnection *connection,
            NSDictionary<FBGraphUser> *user,
-           NSError *error) {
-             if (!error) {
+           NSError *error)
+         {
+             if (!error)
+             {
                  _message.text = user.name;
                  _imageView.profileID = user.id;
                  _imageView.hidden = NO;
+                 if (_notifyLoggedInState)
+                     [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFY_USER_LOGGED_IN object:nil];
              }
          }];
     }
-    [self performSegueWithIdentifier:@"did-login"
-                              sender:self];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -88,7 +97,8 @@
 }
 
 - (void)loginView:(FBLoginView *)loginView
-      handleError:(NSError *)error{
+      handleError:(NSError *)error
+{
     NSString *alertMessage, *alertTitle;
     
     // Facebook SDK * error handling *

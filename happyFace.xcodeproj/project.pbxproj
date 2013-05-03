@@ -52,8 +52,9 @@
 		659A4CD2172E5CBC00C269CC /* menuright.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCA172E5CBC00C269CC /* menuright.png */; };
 		659A4CD3172E5CBC00C269CC /* menuright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCB172E5CBC00C269CC /* menuright@2x.png */; };
 		659A4CD61730F13B00C269CC /* HFNewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */; };
-		659A4CD91730F2BF00C269CC /* HFNFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CD81730F2BF00C269CC /* HFNFViewController.m */; };
 		65E6B9F61727D0E8000C5E00 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 65E6B9F51727D0E8000C5E00 /* Podfile */; };
+		65EB9FE417322716007B8C94 /* HFLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EB9FE317322716007B8C94 /* HFLeftMenuCell.m */; };
+		65EB9FEA17338D12007B8C94 /* HFLeftMenuHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EB9FE917338D12007B8C94 /* HFLeftMenuHeader.m */; };
 		D8454882FDC741429C18956A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DE5A03864D4713B81BD59F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -132,9 +133,14 @@
 		659A4CCB172E5CBC00C269CC /* menuright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuright@2x.png"; sourceTree = "<group>"; };
 		659A4CD41730F13A00C269CC /* HFNewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFNewsFeedViewController.h; sourceTree = "<group>"; };
 		659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFNewsFeedViewController.m; sourceTree = "<group>"; };
-		659A4CD71730F2BF00C269CC /* HFNFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFNFViewController.h; sourceTree = "<group>"; };
-		659A4CD81730F2BF00C269CC /* HFNFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFNFViewController.m; sourceTree = "<group>"; };
 		65E6B9F51727D0E8000C5E00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		65EB9FE217322716007B8C94 /* HFLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLeftMenuCell.h; sourceTree = "<group>"; };
+		65EB9FE317322716007B8C94 /* HFLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLeftMenuCell.m; sourceTree = "<group>"; };
+		65EB9FE517322905007B8C94 /* Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		65EB9FE617322C3D007B8C94 /* Notifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
+		65EB9FE717323F25007B8C94 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		65EB9FE817338D12007B8C94 /* HFLeftMenuHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLeftMenuHeader.h; sourceTree = "<group>"; };
+		65EB9FE917338D12007B8C94 /* HFLeftMenuHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLeftMenuHeader.m; sourceTree = "<group>"; };
 		73DE5A03864D4713B81BD59F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,9 +224,12 @@
 			children = (
 				653C674017279DA7002E1188 /* HFAppDelegate.h */,
 				653C674117279DA7002E1188 /* HFAppDelegate.m */,
+				65EB9FE717323F25007B8C94 /* Logging.h */,
+				65EB9FE617322C3D007B8C94 /* Notifications.h */,
 				653C674917279DA7002E1188 /* MainStoryboard_iPhone.storyboard */,
 				653C674C17279DA7002E1188 /* MainStoryboard_iPad.storyboard */,
 				65EB9FE017310641007B8C94 /* View controllers */,
+				65EB9FE117322699007B8C94 /* Table view cells */,
 				659A4C9C172E426900C269CC /* images */,
 				653C673817279DA7002E1188 /* Supporting Files */,
 			);
@@ -234,6 +243,7 @@
 				653C673917279DA7002E1188 /* happyFace-Info.plist */,
 				653C673A17279DA7002E1188 /* InfoPlist.strings */,
 				653C673D17279DA7002E1188 /* main.m */,
+				65EB9FE517322905007B8C94 /* Utilities.h */,
 				653C673F17279DA7002E1188 /* happyFace-Prefix.pch */,
 				653C674317279DA7002E1188 /* Default.png */,
 				653C674517279DA7002E1188 /* Default@2x.png */,
@@ -305,8 +315,6 @@
 		65EB9FE017310641007B8C94 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
-				659A4CD71730F2BF00C269CC /* HFNFViewController.h */,
-				659A4CD81730F2BF00C269CC /* HFNFViewController.m */,
 				653C674F17279DA7002E1188 /* HFLeftMenuViewController.h */,
 				653C675017279DA7002E1188 /* HFLeftMenuViewController.m */,
 				6505CE441727A12F0008BE75 /* HFLoginViewController.h */,
@@ -316,6 +324,18 @@
 			);
 			name = "View controllers";
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		65EB9FE117322699007B8C94 /* Table view cells */ = {
+			isa = PBXGroup;
+			children = (
+				65EB9FE217322716007B8C94 /* HFLeftMenuCell.h */,
+				65EB9FE317322716007B8C94 /* HFLeftMenuCell.m */,
+				65EB9FE817338D12007B8C94 /* HFLeftMenuHeader.h */,
+				65EB9FE917338D12007B8C94 /* HFLeftMenuHeader.m */,
+			);
+			name = "Table view cells";
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,7 +506,8 @@
 				659A4CB6172E5AD300C269CC /* SASlideMenuRootViewController.m in Sources */,
 				659A4CB7172E5AD300C269CC /* SASlideMenuViewController.m in Sources */,
 				659A4CD61730F13B00C269CC /* HFNewsFeedViewController.m in Sources */,
-				659A4CD91730F2BF00C269CC /* HFNFViewController.m in Sources */,
+				65EB9FE417322716007B8C94 /* HFLeftMenuCell.m in Sources */,
+				65EB9FEA17338D12007B8C94 /* HFLeftMenuHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,11 +16,12 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "HFLeftMenuViewController.h"
 
 /*
  The UIViewController representing the Scrumptious landing page.
 */
-@interface HFLoginViewController : UIViewController<FBLoginViewDelegate>
+@interface HFLoginViewController : UIViewController<FBLoginViewDelegate, HFContentViewProtocol>
 
 @property (nonatomic, strong) IBOutlet UILabel *message;
 @property (nonatomic, strong) IBOutlet FBProfilePictureView *imageView;

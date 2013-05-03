@@ -55,21 +55,36 @@
                         <outlet property="imageView" destination="FZY-1L-cV2" id="elT-zY-FYY"/>
                         <outlet property="message" destination="x2M-6h-9fd" id="o6A-aE-cEY"/>
                         <outlet property="view" destination="0CJ-BR-JOM" id="mbS-Ah-fcz"/>
-                        <segue destination="pnw-oh-i4e" kind="push" identifier="did-login" customClass="SASlideMenuContentSegue" id="DkS-sv-BgU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfe-X9-Xdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="-1543"/>
         </scene>
-        <!--News Feed View Controller-->
+        <!--Navigation Controller - News Feed-->
+        <scene sceneID="eCt-Pt-CMT">
+            <objects>
+                <navigationController title="News Feed" definesPresentationContext="YES" id="I4r-CL-m0t" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8p6-uJ-ZHZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.20784313725490194" green="0.28235294117647058" blue="0.51764705882352935" alpha="1" colorSpace="deviceRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pnw-oh-i4e" kind="relationship" relationship="rootViewController" id="79k-sV-lcW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zxg-hS-Jyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226" y="-346"/>
+        </scene>
+        <!--News Feed View Controller - News Feed-->
         <scene sceneID="HHy-ym-0p4">
             <objects>
-                <tableViewController id="pnw-oh-i4e" customClass="HFNewsFeedViewController" sceneMemberID="viewController">
+                <tableViewController title="News Feed" id="pnw-oh-i4e" customClass="HFNewsFeedViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KTo-Gh-4Qw">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.30950730850000002" alpha="0.0" colorSpace="deviceRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsItem" id="HD9-fL-wyt">
@@ -87,7 +102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Kb-Ge-UGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="-1543"/>
+            <point key="canvasLocation" x="756" y="-346"/>
         </scene>
         <!--Slide Menu Root View Controller-->
         <scene sceneID="rmQ-3S-fKZ">
@@ -116,7 +131,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="item" id="8mU-aq-lPD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="leftMenuCell" id="8mU-aq-lPD" customClass="HFLeftMenuCell">
                                 <rect key="frame" x="0.0" y="22" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -133,6 +148,8 @@
                     </tableView>
                     <connections>
                         <segue destination="Fai-Gg-zvH" kind="custom" identifier="login" customClass="SASlideMenuContentSegue" id="hbe-8W-rCs"/>
+                        <segue destination="I4r-CL-m0t" kind="custom" identifier="news-feed" customClass="SASlideMenuContentSegue" id="tUS-Ej-exj"/>
+                        <segue destination="Fai-Gg-zvH" kind="custom" identifier="logout" customClass="SASlideMenuContentSegue" id="Cgq-Ya-89a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUF-8G-zWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,6 +163,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cwm-Kh-WxQ">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.20784313730000001" green="0.28235294119999998" blue="0.51764705879999995" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="sOf-fB-FUQ" kind="relationship" relationship="rootViewController" id="tER-s8-jwa"/>
@@ -165,6 +183,9 @@
         </class>
         <class className="FBProfilePictureView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
+        </class>
+        <class className="HFLeftMenuCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HFLeftMenuCell.h"/>
         </class>
         <class className="HFLeftMenuViewController" superclassName="SASlideMenuViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HFLeftMenuViewController.h"/>
@@ -195,4 +216,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Cgq-Ya-89a"/>
+    </inferredMetricsTieBreakers>
 </document>

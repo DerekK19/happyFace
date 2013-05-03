@@ -12,3 +12,10 @@
 @interface HFLeftMenuViewController : SASlideMenuViewController
 
 @end
+
+@protocol HFContentViewProtocol <NSObject>
+
+@required
+- (void)setSegueIdentifier:(NSString *)name;
+
+@end

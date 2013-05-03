@@ -12,3 +12,10 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#import <NSLogger/LoggerClient.h>
+#import <NSLogger/LoggerCommon.h>
+
+#import "Utilities.h"
+#import "Notifications.h"
+#import "Logging.h"

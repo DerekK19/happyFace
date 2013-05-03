@@ -14,10 +14,11 @@
 
 @implementation HFNewsFeedViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
         // Custom initialization
     }
     return self;

@@ -7,17 +7,18 @@
 //
 
 #import "HFLeftMenuViewController.h"
+#import "HFLeftMenuHeader.h"
+#import "HFLeftMenuCell.h"
 #import "HFAppDelegate.h"
 #import "HFLoginViewController.h"
 #import "SASlideMenuDataSource.h"
 #import "SASlideMenuDelegate.h"
 
-#define RGBColour(r,g,b) [UIColor colorWithRed:((CGFloat)r)/255.f green:((CGFloat)g)/255.f blue:((CGFloat)b)/255.f alpha:1.f]
-
 @interface HFLeftMenuViewController () <SASlideMenuDataSource, SASlideMenuDelegate, UITableViewDataSource>
 {
 }
 
+@property (nonatomic, strong) NSDictionary *menu;
 @property (nonatomic, strong) NSArray *menuSections;
 
 @end
@@ -30,6 +31,39 @@
     if (self)
     {
         _menuSections = @[@"", @"FAVOURITES", @"APPS", @"GROUPS", @"FRIENDS", @" "];
+        _menu = @{@"sections":@[
+                                @{@"title"   : @"",
+                                  @"entries" : @[@{@"title"  : @"Sign In",
+                                                   @"segue"  : @"login"}]},
+                                @{@"title"   : @"FAVOURITES",
+                                  @"entries" : @[@{@"title"  : @"News Feed",
+                                                   @"segue"  : @"news-feed"},
+                                                 @{@"title"  : @"Messages",
+                                                   @"segue"  : @"news-feed"},
+                                                 @{@"title"  : @"Nearby",
+                                                   @"segue"  : @"news-feed"},
+                                                 @{@"title"  : @"Events",
+                                                   @"segue"  : @"news-feed"},
+                                                 @{@"title"  : @"Friends",
+                                                   @"segue"  : @"news-feed"}]},
+                                @{@"title"   : @"APPS",
+                                  @"entries" : @[]},
+                                @{@"title"   : @"GROUPS",
+                                  @"entries" : @[]},
+                                @{@"title"   : @"FRIENDS",
+                                  @"entries" : @[]},
+                                @{@"title"   : @" ",
+                                  @"entries" : @[@{@"title"  : @"Sign Out",
+                                                   @"segue"  : @"logout"}]}
+                                ]};
+        [[NSNotificationCenter defaultCenter]addObserverForName:NOTIFY_USER_LOGGED_IN
+                                                         object:nil
+                                                          queue:nil
+                                                     usingBlock:^(NSNotification *note)
+                                                                {
+                                                                    [self performSegueWithIdentifier:@"news-feed"
+                                                                                              sender:self];
+                                                                }];
     }
     return self;
 }
@@ -55,12 +89,13 @@
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
     if ([controller isKindOfClass:[HFLoginViewController class]])
     {
-//        HFLoginViewController *loginViewController = (HFLoginViewController *)controller;
+        HFLoginViewController *loginViewController = (HFLoginViewController *)controller;
     }
 }
 
 // It configure the menu button. The beahviour of the button should not be modified
--(void) configureMenuButton:(UIButton *)menuButton{
+-(void) configureMenuButton:(UIButton *)menuButton
+{
     menuButton.frame = CGRectMake(0, 0, 40, 29);
     [menuButton setImage:[UIImage imageNamed:@"menuicon.png"] forState:UIControlStateNormal];
     [menuButton setBackgroundImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
@@ -70,7 +105,8 @@
 }
 
 // It configure the right menu button. The beahviour of the button should not be modified
--(void) configureRightMenuButton:(UIButton *)menuButton{
+-(void) configureRightMenuButton:(UIButton *)menuButton
+{
     menuButton.frame = CGRectMake(0, 0, 40, 29);
     [menuButton setImage:[UIImage imageNamed:@"menuright.png"] forState:UIControlStateNormal];
     [menuButton setBackgroundImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
@@ -79,7 +115,7 @@
     [menuButton setAdjustsImageWhenDisabled:NO];
 }
 
-// This is the segue you want visibile when the controller is loaded the first time
+// This is the segue you want visible when the controller is loaded the first time
 -(NSIndexPath*) selectedIndexPath
 {
     return [NSIndexPath indexPathForRow:0 inSection:0];
@@ -89,7 +125,11 @@
 
 -(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath
 {
-    return @"login";
+    NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:indexPath.section];
+    NSArray *entries = [subMenu objectForKey:@"entries"];
+    NSDictionary *entry = [entries objectAtIndex:indexPath.row];
+    
+    return [entry objectForKey:@"segue"];
 }
 
 - (NSString *)initialSegueId
@@ -97,23 +137,43 @@
     return @"login";
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    UIViewController *dest = [segue destinationViewController];
+    NSString *name = [segue identifier];
+    DEBUGLog(@"prepareForSegue %@ %@ %@", segue, dest, name);
+    
+    if ([dest isKindOfClass:[UINavigationController class]])
+    {
+        UIViewController *controller = [((UINavigationController *)dest).viewControllers objectAtIndex:0];
+        if ([controller conformsToProtocol:@protocol(HFContentViewProtocol)])
+        {
+            DEBUGLog(@"Pass parameter '%@'", name);
+            [(NSObject<HFContentViewProtocol>*)controller setSegueIdentifier:name];
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _menuSections.count;
+    return ((NSArray *)([_menu objectForKey:@"sections"])).count;
 }
 
 -(NSString*)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section
 {
-    return [_menuSections objectAtIndex:section];
+    NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:section];
+    return [subMenu objectForKey:@"title"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return [[_menuSections objectAtIndex:section] length] == 0 ? 0.f : 36.f;
+    NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:section];
+    return [[subMenu objectForKey:@"title"] length] == 0 ? 0.f : 36.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,8 +187,7 @@ titleForHeaderInSection:(NSInteger)section
     CGFloat marginX = 10.f;
     CGFloat marginY = 5.f;
     
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.f, 0.f, width, height)];
-    headerView.backgroundColor = RGBColour(63, 70, 89);
+    HFLeftMenuHeader *headerView = [[HFLeftMenuHeader alloc]initWithFrame:CGRectMake(0.f, 0.f, width, height)];
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(marginX, marginY, width-2*marginX, height-2*marginY)];
     label.backgroundColor = [UIColor clearColor];
@@ -146,8 +205,11 @@ titleForHeaderInSection:(NSInteger)section
 }
 
 -(NSInteger) tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section{
-    return 1;
+ numberOfRowsInSection:(NSInteger)section
+{
+    NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:section];
+    NSArray *entries = [subMenu objectForKey:@"entries"];
+    return entries.count;
 }
 
 -(void) tableView:(UITableView *)tableView
@@ -156,20 +218,25 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (cell.isSelected == YES)
     {
-        [cell setBackgroundColor:RGBColour(42, 46, 61)];
+//        [cell setBackgroundColor:RGBColour(42, 46, 61)];
     }
     else
     {
-        [cell setBackgroundColor:RGBColour(51, 56, 75)];
+//        [cell setBackgroundColor:RGBColour(51, 56, 75)];
     }
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView
-        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"item"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"login";
-    cell.textLabel.textColor = RGBColour(157, 161, 178);
+        cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:indexPath.section];
+    NSArray *entries = [subMenu objectForKey:@"entries"];
+    NSDictionary *entry = [entries objectAtIndex:indexPath.row];
+
+    HFLeftMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"leftMenuCell"];
+    cell = [cell initWithStyle:UITableViewCellStyleDefault
+               reuseIdentifier:@"leftMenuCell"];
+    cell.textLabel.text = [entry objectForKey:@"title"];
     return cell;
 }
 
@@ -189,12 +256,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(42, 46, 61)];
+//    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(42, 46, 61)];
+
+    NSDictionary *subMenu = [((NSArray *)([_menu objectForKey:@"sections"])) objectAtIndex:indexPath.section];
+    NSArray *entries = [subMenu objectForKey:@"entries"];
+    NSDictionary *entry = [entries objectAtIndex:indexPath.row];
+    
+    [self performSegueWithIdentifier:[entry objectForKey:@"segue"]
+                              sender:self];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(51, 56, 75)];
+//    [[tableView cellForRowAtIndexPath:indexPath] setBackgroundColor:RGBColour(51, 56, 75)];
 }
 
 #pragma mark -
@@ -202,35 +276,35 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 -(void) slideMenuWillSlideIn
 {
-    NSLog(@"slideMenuWillSlideIn");
+    DEBUGLog(@"slideMenuWillSlideIn");
 }
 -(void) slideMenuDidSlideIn
 {
-    NSLog(@"slideMenuDidSlideIn");
+    DEBUGLog(@"slideMenuDidSlideIn");
 }
 -(void) slideMenuWillSlideToSide
 {
-    NSLog(@"slideMenuWillSlideToSide");
+    DEBUGLog(@"slideMenuWillSlideToSide");
 }
 -(void) slideMenuDidSlideToSide
 {
-    NSLog(@"slideMenuDidSlideToSide");
+    DEBUGLog(@"slideMenuDidSlideToSide");
 }
 -(void) slideMenuWillSlideOut
 {
-    NSLog(@"slideMenuWillSlideOut");
+    DEBUGLog(@"slideMenuWillSlideOut");
 }
 -(void) slideMenuDidSlideOut
 {
-    NSLog(@"slideMenuDidSlideOut");
+    DEBUGLog(@"slideMenuDidSlideOut");
 }
 -(void) slideMenuWillSlideToLeft
 {
-    NSLog(@"slideMenuWillSlideToLeft");
+    DEBUGLog(@"slideMenuWillSlideToLeft");
 }
 -(void) slideMenuDidSlideToLeft
 {
-    NSLog(@"slideMenuDidSlideToLeft");
+    DEBUGLog(@"slideMenuDidSlideToLeft");
 }
 
 @end
