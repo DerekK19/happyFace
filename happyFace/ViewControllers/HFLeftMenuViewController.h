@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Derek Knight. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "SASlideMenuViewController.h"
 
 @interface HFLeftMenuViewController : SASlideMenuViewController

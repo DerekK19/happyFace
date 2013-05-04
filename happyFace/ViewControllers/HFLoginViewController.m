@@ -122,13 +122,13 @@
     } else if (error.fberrorCategory == FBErrorCategoryUserCancelled) {
         // The user has cancelled a login. You can inspect the error
         // for more context. For this sample, we will simply ignore it.
-        NSLog(@"user cancelled login");
+        ERRORLog(@"user cancelled login");
     } else {
         // For simplicity, this sample treats other errors blindly, but you should
         // refer to https://developers.facebook.com/docs/technical-guides/iossdk/errors/ for more information.
         alertTitle  = @"Unknown Error";
         alertMessage = @"Error. Please try again later.";
-        NSLog(@"Unexpected error:%@", error);
+        ERRORLog(@"Unexpected error:%@", error);
     }
     
     if (alertMessage) {

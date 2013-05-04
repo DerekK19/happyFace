@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Derek Knight. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface HFNewsFeedViewController : UITableViewController
 
 @end

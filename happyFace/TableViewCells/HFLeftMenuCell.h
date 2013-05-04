@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Derek Knight. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface HFLeftMenuCell : UITableViewCell
 
-- (void)setTitle:(NSString *)value;
-- (void)setPicture:(UIImage *)value;
+@property (nonatomic) NSString *title;
+@property (nonatomic) UIImage *picture;
 
 @end

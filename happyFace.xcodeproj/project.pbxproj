@@ -53,6 +53,10 @@
 		659A4CD2172E5CBC00C269CC /* menuright.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCA172E5CBC00C269CC /* menuright.png */; };
 		659A4CD3172E5CBC00C269CC /* menuright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 659A4CCB172E5CBC00C269CC /* menuright@2x.png */; };
 		659A4CD61730F13B00C269CC /* HFNewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */; };
+		65D62B4D173496AD008FC040 /* HFLeftMenuProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D62B4C173496AD008FC040 /* HFLeftMenuProfileCell.m */; };
+		65D62B561734C811008FC040 /* HFFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D62B551734C811008FC040 /* HFFriendsViewController.m */; };
+		65D62B5A1734C9F3008FC040 /* HFFriendsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D62B591734C9F3008FC040 /* HFFriendsLayout.m */; };
+		65D62B5D1734CBC2008FC040 /* HFFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D62B5C1734CBC2008FC040 /* HFFriendCell.m */; };
 		65EB9FE417322716007B8C94 /* HFLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EB9FE317322716007B8C94 /* HFLeftMenuCell.m */; };
 		65EB9FEA17338D12007B8C94 /* HFLeftMenuHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EB9FE917338D12007B8C94 /* HFLeftMenuHeader.m */; };
 		D8454882FDC741429C18956A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DE5A03864D4713B81BD59F /* libPods.a */; };
@@ -134,6 +138,14 @@
 		659A4CCB172E5CBC00C269CC /* menuright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuright@2x.png"; sourceTree = "<group>"; };
 		659A4CD41730F13A00C269CC /* HFNewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFNewsFeedViewController.h; sourceTree = "<group>"; };
 		659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFNewsFeedViewController.m; sourceTree = "<group>"; };
+		65D62B4B173496AD008FC040 /* HFLeftMenuProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLeftMenuProfileCell.h; sourceTree = "<group>"; };
+		65D62B4C173496AD008FC040 /* HFLeftMenuProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLeftMenuProfileCell.m; sourceTree = "<group>"; };
+		65D62B541734C811008FC040 /* HFFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFFriendsViewController.h; sourceTree = "<group>"; };
+		65D62B551734C811008FC040 /* HFFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFFriendsViewController.m; sourceTree = "<group>"; };
+		65D62B581734C9F3008FC040 /* HFFriendsLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFFriendsLayout.h; path = Layouts/HFFriendsLayout.h; sourceTree = "<group>"; };
+		65D62B591734C9F3008FC040 /* HFFriendsLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFFriendsLayout.m; path = Layouts/HFFriendsLayout.m; sourceTree = "<group>"; };
+		65D62B5B1734CBC2008FC040 /* HFFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFFriendCell.h; sourceTree = "<group>"; };
+		65D62B5C1734CBC2008FC040 /* HFFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFFriendCell.m; sourceTree = "<group>"; };
 		65EB9FE217322716007B8C94 /* HFLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLeftMenuCell.h; sourceTree = "<group>"; };
 		65EB9FE317322716007B8C94 /* HFLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLeftMenuCell.m; sourceTree = "<group>"; };
 		65EB9FE517322905007B8C94 /* Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -228,6 +240,7 @@
 				653C674917279DA7002E1188 /* MainStoryboard_iPhone.storyboard */,
 				653C674C17279DA7002E1188 /* MainStoryboard_iPad.storyboard */,
 				65EB9FE017310641007B8C94 /* View controllers */,
+				65D62B571734C9C7008FC040 /* Layouts */,
 				65EB9FE117322699007B8C94 /* Table view cells */,
 				659A4C9C172E426900C269CC /* images */,
 				653C673817279DA7002E1188 /* Supporting Files */,
@@ -312,6 +325,15 @@
 			path = ../../OpenSource/SASlideMenu/SASlideMenu/SASlideMenu;
 			sourceTree = "<group>";
 		};
+		65D62B571734C9C7008FC040 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				65D62B581734C9F3008FC040 /* HFFriendsLayout.h */,
+				65D62B591734C9F3008FC040 /* HFFriendsLayout.m */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
 		65EB9FE017310641007B8C94 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +343,8 @@
 				6505CE461727A12F0008BE75 /* HFLoginViewController.m */,
 				659A4CD41730F13A00C269CC /* HFNewsFeedViewController.h */,
 				659A4CD51730F13B00C269CC /* HFNewsFeedViewController.m */,
+				65D62B541734C811008FC040 /* HFFriendsViewController.h */,
+				65D62B551734C811008FC040 /* HFFriendsViewController.m */,
 			);
 			name = "View controllers";
 			path = ViewControllers;
@@ -331,8 +355,12 @@
 			children = (
 				65EB9FE217322716007B8C94 /* HFLeftMenuCell.h */,
 				65EB9FE317322716007B8C94 /* HFLeftMenuCell.m */,
+				65D62B4B173496AD008FC040 /* HFLeftMenuProfileCell.h */,
+				65D62B4C173496AD008FC040 /* HFLeftMenuProfileCell.m */,
 				65EB9FE817338D12007B8C94 /* HFLeftMenuHeader.h */,
 				65EB9FE917338D12007B8C94 /* HFLeftMenuHeader.m */,
+				65D62B5B1734CBC2008FC040 /* HFFriendCell.h */,
+				65D62B5C1734CBC2008FC040 /* HFFriendCell.m */,
 			);
 			name = "Table view cells";
 			path = TableViewCells;
@@ -508,6 +536,10 @@
 				659A4CD61730F13B00C269CC /* HFNewsFeedViewController.m in Sources */,
 				65EB9FE417322716007B8C94 /* HFLeftMenuCell.m in Sources */,
 				65EB9FEA17338D12007B8C94 /* HFLeftMenuHeader.m in Sources */,
+				65D62B4D173496AD008FC040 /* HFLeftMenuProfileCell.m in Sources */,
+				65D62B561734C811008FC040 /* HFFriendsViewController.m in Sources */,
+				65D62B5A1734C9F3008FC040 /* HFFriendsLayout.m in Sources */,
+				65D62B5D1734CBC2008FC040 /* HFFriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

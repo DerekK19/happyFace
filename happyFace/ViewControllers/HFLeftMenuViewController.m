@@ -9,6 +9,7 @@
 #import "HFLeftMenuViewController.h"
 #import "HFLeftMenuHeader.h"
 #import "HFLeftMenuCell.h"
+#import "HFLeftMenuProfileCell.h"
 #import "HFAppDelegate.h"
 #import "HFLoginViewController.h"
 #import "SASlideMenuDataSource.h"
@@ -16,7 +17,7 @@
 
 @interface HFLeftMenuViewController () <SASlideMenuDataSource, SASlideMenuDelegate, UITableViewDataSource>
 {
-    HFLeftMenuCell *_userCell;
+    HFLeftMenuProfileCell *_userCell;
 }
 
 @property (nonatomic, strong) NSDictionary *menu;
@@ -38,6 +39,7 @@
                                 @{@"title"   : @"",
                                   @"entries" : @[@{@"title"  : @"Sign In",
                                                    @"image"  : @"placeholder.png",
+                                                   @"tag"    : @"user",
                                                    @"segue"  : @"login"}]},
                                 @{@"title"   : @"FAVOURITES",
                                   @"entries" : @[@{@"title"  : @"News Feed",
@@ -49,7 +51,7 @@
                                                  @{@"title"  : @"Events",
                                                    @"segue"  : @"news-feed"},
                                                  @{@"title"  : @"Friends",
-                                                   @"segue"  : @"news-feed"}]},
+                                                   @"segue"  : @"friends-list"}]},
                                 @{@"title"   : @"APPS",
                                   @"entries" : @[]},
                                 @{@"title"   : @"GROUPS",
@@ -92,11 +94,8 @@
 
 - (void)setUser:(NSDictionary<FBGraphUser>*)user
 {
-//    HFLeftMenuCell *cell = (HFLeftMenuCell *)[self tableView:self.tableView
-//                                       cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0
-//                                                                                inSection:0]];
-    [_userCell setTitle:user.name];
-//    [cell setNeedsDisplay];
+    [_userCell setUserName:user.name];
+    [_userCell setProfileId:user.id];
 }
 
 #pragma mark -
@@ -104,11 +103,11 @@
 
 -(void) prepareForSwitchToContentViewController:(UINavigationController *)content
 {
-    UIViewController* controller = [content.viewControllers objectAtIndex:0];
-    if ([controller isKindOfClass:[HFLoginViewController class]])
-    {
-        HFLoginViewController *loginViewController = (HFLoginViewController *)controller;
-    }
+//    UIViewController* controller = [content.viewControllers objectAtIndex:0];
+//    if ([controller isKindOfClass:[HFLoginViewController class]])
+//    {
+//        HFLoginViewController *loginViewController = (HFLoginViewController *)controller;
+//    }
 }
 
 // It configure the menu button. The beahviour of the button should not be modified
@@ -234,7 +233,7 @@ titleForHeaderInSection:(NSInteger)section
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"tableView:willDisplayCell %@ %d %d", cell, indexPath.section, indexPath.row);
+    DEBUGLog(@"tableView:willDisplayCell %@ %d %d", cell, indexPath.section, indexPath.row);
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView
@@ -244,15 +243,39 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSArray *entries = [subMenu objectForKey:@"entries"];
     NSDictionary *entry = [entries objectAtIndex:indexPath.row];
     NSString *title = [entry objectForKey:@"title"];
+    BOOL isUserCell = [[entry objectForKey:@"tag"] isEqualToString:@"user"];
 
-    static NSString *cellIdentifier = @"leftMenuCell";
-    HFLeftMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    [cell setTitle:title];
-    [cell setPicture:[UIImage imageNamed:[entry objectForKey:@"image"]]];
-    
-    if (indexPath.section == 0 && indexPath.row == 0) _userCell = cell;
-    
-    return cell;
+    if (isUserCell)
+    {
+        static NSString *cellIdentifier = @"leftMenuProfileCell";
+        
+        _userCell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if( _userCell == nil)
+        {
+            DEBUGLog(@"Need to alloc a user cell");
+            _userCell = [[HFLeftMenuProfileCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                     reuseIdentifier:cellIdentifier];
+        }
+        [_userCell setUserName:title];
+
+        return _userCell;
+    }
+    else
+    {
+        static NSString *cellIdentifier = @"leftMenuCell";
+        
+        HFLeftMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if( cell == nil)
+        {
+            DEBUGLog(@"Need to alloc a menu cell");
+            cell = [[HFLeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                         reuseIdentifier:cellIdentifier];
+        }
+        [cell setTitle:title];
+        [cell setPicture:[UIImage imageNamed:[entry objectForKey:@"image"]]];
+        
+        return cell;
+    }
 }
 
 -(CGFloat) leftMenuVisibleWidth

@@ -1,21 +1,22 @@
 //
-//  HFLeftMenuCell.m
+//  HFLeftMenuProfileCell.m
 //  happyFace
 //
-//  Created by Derek Knight on 2/05/13.
+//  Created by Derek Knight on 4/05/13.
 //  Copyright (c) 2013 Derek Knight. All rights reserved.
 //
 
-#import "HFLeftMenuCell.h"
+#import "HFLeftMenuProfileCell.h"
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface HFLeftMenuCell ()
+@interface HFLeftMenuProfileCell ()
 
-@property (nonatomic) IBOutlet UIImageView *menuPicture;
-@property (nonatomic) IBOutlet UILabel *menuTitle;
+@property (nonatomic) IBOutlet FBProfilePictureView *profilePicture;
+@property (nonatomic) IBOutlet UILabel *profileName;
 
 @end
 
-@implementation HFLeftMenuCell
+@implementation HFLeftMenuProfileCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style
     reuseIdentifier:(NSString *)reuseIdentifier
@@ -31,23 +32,23 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
     
     [self setNeedsDisplay];
 }
 
-- (void)setTitle:(NSString *)value
+- (void)setUserName:(NSString *)userName
 {
-    _menuTitle.text = value;
-
+    _profileName.text = userName;
+    
     [self setNeedsDisplay];
 }
 
-- (void)setPicture:(UIImage *)value
+- (void)setProfileId:(NSString *)profileId
 {
-    _menuPicture.image = value;
-
+    _profilePicture.profileID = profileId;;
+    
     [self setNeedsDisplay];
 }
 

@@ -82,7 +82,7 @@
                 // open but a more advanced app could support features like user switching.
                 if (call.accessTokenData) {
                     if ([FBSession activeSession].isOpen) {
-                        NSLog(@"INFO: Ignoring app link because current session is open.");
+                        ERRORLog(@"INFO: Ignoring app link because current session is open.");
                     }
                     else {
                         [self handleAppLink:call.accessTokenData];
