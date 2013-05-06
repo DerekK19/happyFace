@@ -28,6 +28,12 @@
     return self;
 }
 
+- (void)setModel:(HFFriend *)model
+{
+    _label.text = model.name;
+//    _picture.profileID = model.identifier;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

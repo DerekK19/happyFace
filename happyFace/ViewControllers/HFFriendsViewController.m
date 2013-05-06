@@ -9,10 +9,15 @@
 #import "HFFriendsViewController.h"
 #import "HFFriendsLayout.h"
 #import "HFFriendCell.h"
+#import "HFFriend.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 static NSString * const FriendCellIdentifier = @"friendCell";
 
 @interface HFFriendsViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+{
+    NSMutableArray *_friends;
+}
 
 @property (nonatomic) IBOutlet HFFriendsLayout *friendsLayout;
 
@@ -35,6 +40,27 @@ static NSString * const FriendCellIdentifier = @"friendCell";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _friends = [[NSMutableArray alloc]init];
+    for (int i = 0; i < 27; i++) [_friends addObject:[[NSMutableArray alloc]init]];
+    
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        NSArray* friends = [result objectForKey:@"data"];
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        friends = [friends sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+        DEBUGLog(@"Found: %i friends", friends.count);
+        for (NSDictionary<FBGraphUser>* friend in friends) {
+            DEBUGLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+            int section = [[friend.name lowercaseString] characterAtIndex:0] - 'a';
+            if (section < 0 || section > 26) section = 26;
+            [[_friends objectAtIndex:section] addObject:[[HFFriend alloc]initWithIdentifier:friend.id
+                                                                                    andName:friend.name]];
+        }
+        [self.collectionView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,15 +93,16 @@ static NSString * const FriendCellIdentifier = @"friendCell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    DEBUGLog(@"There are 26 sections");
-    return 26;
+    DEBUGLog(@"There are 27 sections");
+    return 27;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    DEBUGLog(@"There are 5 items in section %d", section);
-    return 5;
+    int count = [[_friends objectAtIndex:section] count];
+    DEBUGLog(@"There are %d items in section %d", count, section);
+    return count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -84,6 +111,7 @@ static NSString * const FriendCellIdentifier = @"friendCell";
     DEBUGLog(@"Get cell for section %d, item %d", indexPath.section, indexPath.row);
     HFFriendCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FriendCellIdentifier
                                                                    forIndexPath:indexPath];
+    cell.model = [[_friends objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     return cell;
 }

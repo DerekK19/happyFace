@@ -18,6 +18,7 @@
 		6505CE541727A5AD0008BE75 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE531727A5AD0008BE75 /* Icon@2x.png */; };
 		6505CE621727AEF60008BE75 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE601727AEF60008BE75 /* FacebookSDKResources.bundle */; };
 		6505CE631727AEF60008BE75 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6505CE611727AEF60008BE75 /* FBUserSettingsViewResources.bundle */; };
+		650E812817361BB3009069F8 /* HFFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E812717361BB3009069F8 /* HFFriend.m */; };
 		653C673217279DA7002E1188 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673117279DA7002E1188 /* UIKit.framework */; };
 		653C673417279DA7002E1188 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673317279DA7002E1188 /* Foundation.framework */; };
 		653C673617279DA7002E1188 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653C673517279DA7002E1188 /* CoreGraphics.framework */; };
@@ -86,6 +87,8 @@
 		6505CE531727A5AD0008BE75 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6505CE601727AEF60008BE75 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../OpenSource/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		6505CE611727AEF60008BE75 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../OpenSource/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		650E812617361BB3009069F8 /* HFFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFFriend.h; sourceTree = "<group>"; };
+		650E812717361BB3009069F8 /* HFFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFFriend.m; sourceTree = "<group>"; };
 		653C672E17279DA7002E1188 /* happyFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = happyFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		653C673117279DA7002E1188 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		653C673317279DA7002E1188 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		650E812517361B4F009069F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				650E812617361BB3009069F8 /* HFFriend.h */,
+				650E812717361BB3009069F8 /* HFFriend.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		653C672517279DA7002E1188 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +251,7 @@
 				65EB9FE617322C3D007B8C94 /* Notifications.h */,
 				653C674917279DA7002E1188 /* MainStoryboard_iPhone.storyboard */,
 				653C674C17279DA7002E1188 /* MainStoryboard_iPad.storyboard */,
+				650E812517361B4F009069F8 /* Models */,
 				65EB9FE017310641007B8C94 /* View controllers */,
 				65D62B571734C9C7008FC040 /* Layouts */,
 				65EB9FE117322699007B8C94 /* Table view cells */,
@@ -540,6 +553,7 @@
 				65D62B561734C811008FC040 /* HFFriendsViewController.m in Sources */,
 				65D62B5A1734C9F3008FC040 /* HFFriendsLayout.m in Sources */,
 				65D62B5D1734CBC2008FC040 /* HFFriendCell.m in Sources */,
+				650E812817361BB3009069F8 /* HFFriend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

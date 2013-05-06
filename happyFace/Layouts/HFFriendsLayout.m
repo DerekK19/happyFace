@@ -55,18 +55,25 @@ static NSString * const HFFriendsLayoutCellKind = @"friendCell";
     NSInteger sectionCount = [self.collectionView numberOfSections];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
     
-    for (NSInteger section = 0; section < sectionCount; section++) {
+    NSInteger firstRow = 0;
+    for (NSInteger section = 0; section < sectionCount; section++)
+    {
         NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
-        
-        for (NSInteger item = 0; item < itemCount; item++) {
-            indexPath = [NSIndexPath indexPathForItem:item inSection:section];
+        NSInteger sectionRows = (itemCount + _numberOfColumns - 1) / _numberOfColumns;
+        for (NSInteger item = 0; item < itemCount; item++)
+        {
+            indexPath = [NSIndexPath indexPathForItem:item
+                                            inSection:section];
+            NSIndexPath *imageIndexPath = [NSIndexPath indexPathForItem:item % _numberOfColumns
+                                                              inSection:firstRow + (item / _numberOfColumns)];
             
             UICollectionViewLayoutAttributes *itemAttributes =
             [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            itemAttributes.frame = [self frameForAlbumPhotoAtIndexPath:indexPath];
+            itemAttributes.frame = [self frameForFriendAtIndexPath:imageIndexPath];
             
             cellLayoutInfo[indexPath] = itemAttributes;
         }
+        firstRow += sectionRows;
     }
     
     newLayoutInfo[HFFriendsLayoutCellKind] = cellLayoutInfo;
@@ -114,10 +121,10 @@ static NSString * const HFFriendsLayoutCellKind = @"friendCell";
 
 #pragma mark - Private
 
-- (CGRect)frameForAlbumPhotoAtIndexPath:(NSIndexPath *)indexPath
+- (CGRect)frameForFriendAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = indexPath.section / self.numberOfColumns;
-    NSInteger column = indexPath.section % self.numberOfColumns;
+    NSInteger row = indexPath.section ;
+    NSInteger column = indexPath.row;
     
     CGFloat spacingX = self.collectionView.bounds.size.width -
     self.itemInsets.left -
@@ -160,10 +167,14 @@ static NSString * const HFFriendsLayoutCellKind = @"friendCell";
 
 - (CGSize)collectionViewContentSize
 {
-    NSInteger rowCount = [self.collectionView numberOfSections] / self.numberOfColumns;
-    // make sure we count another row if one is only partially filled
-    if ([self.collectionView numberOfSections] % self.numberOfColumns) rowCount++;
-    
+    NSInteger rowCount = 0;
+    for (NSInteger section = 0; section < [self.collectionView numberOfSections]; section++)
+    {
+        NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
+        NSInteger sectionRows = (itemCount + _numberOfColumns - 1) / _numberOfColumns;
+        rowCount += sectionRows;
+    }
+
     CGFloat height = self.itemInsets.top +
     rowCount * self.itemSize.height + (rowCount - 1) * self.interItemSpacingY +
     self.itemInsets.bottom;
