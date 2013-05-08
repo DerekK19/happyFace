@@ -10,9 +10,8 @@
 
 @interface HFFriend : NSObject
 
-@property (nonatomic) NSString *identifier;
 @property (nonatomic) NSString *name;
+@property (nonatomic) UIImage *picture;
 
-- (id)initWithIdentifier:(NSString *)identifier
-                 andName:(NSString *)name;
+- (id)initWithName:(NSString *)name;
 @end

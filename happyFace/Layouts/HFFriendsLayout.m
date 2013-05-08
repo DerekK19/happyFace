@@ -42,7 +42,7 @@ static NSString * const HFFriendsLayoutCellKind = @"friendCell";
 - (void)setup
 {
     _itemInsets = UIEdgeInsetsMake(22.f, 22.f, 13.f, 22.f);
-    _itemSize = CGSizeMake(175.f, 175.f);
+    _itemSize = CGSizeMake(175.f, 197.f);
     _interItemSpacingY = 60.f;
     _numberOfColumns = 5;
 }
@@ -138,7 +138,7 @@ static NSString * const HFFriendsLayoutCellKind = @"friendCell";
     CGFloat originY = floor(self.itemInsets.top +
                             (self.itemSize.height + self.interItemSpacingY) * row);
     
-    return CGRectMake(originX, originY, self.itemSize.width, self.itemSize.width);
+    return CGRectMake(originX, originY, self.itemSize.width, self.itemSize.height);
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect

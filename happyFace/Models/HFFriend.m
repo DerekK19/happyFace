@@ -10,12 +10,11 @@
 
 @implementation HFFriend
 
-- (id)initWithIdentifier:(NSString *)identifier andName:(NSString *)name
+- (id)initWithName:(NSString *)name
 {
     self = [self init];
     if (self)
     {
-        _identifier = identifier;
         _name = name;
     }
     return self;
